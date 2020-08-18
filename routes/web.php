@@ -27,6 +27,7 @@ Route::middleware(['verified'])->group(function () {
 Route::post('/user/logout', 'Auth\LoginController@userLogout')->name('user.logout');
 
 Route::get('/send-mail', 'TestController@sendMail');
+Route::get('/send-notification', 'TestController@sendNotification');
 
 Route::prefix('/admin')->group(function(){
 
