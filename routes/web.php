@@ -26,7 +26,7 @@ Route::middleware(['verified'])->group(function () {
 // Route::get('/home', 'HomeController@index')->name('user.dashboard');
 Route::post('/user/logout', 'Auth\LoginController@userLogout')->name('user.logout');
 
-
+Route::get('/send-mail', 'TestController@sendMail');
 
 Route::prefix('/admin')->group(function(){
 
@@ -47,16 +47,4 @@ Route::prefix('/admin')->group(function(){
     //Admin Home Page
     Route::get('/', 'AdminController@index')->name('admin.dashboard');
 
-});
-
-Route::get('send-mail', function () {
-
-    $details = [
-        'title' => 'Mail from ItSolutionStuff.com',
-        'body' => 'This is for testing email using smtp'
-    ];
-
-    \Mail::to('sahilofficial671@gmail.com')->send(new \App\Mail\MyTestMail($details));
-
-    dd("Email is Sent.");
 });
