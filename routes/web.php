@@ -29,6 +29,10 @@ Route::post('/user/logout', 'Auth\LoginController@userLogout')->name('user.logou
 Route::get('/send-mail', 'TestController@sendMail');
 Route::get('/send-notification', 'TestController@sendNotification');
 
+Route::prefix('/user')->group(function(){
+    Route::get('/edit', 'UserController@showUserEditForm')->name('user.edit.form');
+    Route::post('/edit/submit', 'UserController@submitUserEdit')->name('user.edit.submit');
+});
 Route::prefix('/admin')->group(function(){
 
     //Login Routes
